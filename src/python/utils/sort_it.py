@@ -3,6 +3,7 @@ This module contains the sort_array function which performs the sort operation b
 """
 from src.python.algDs import insertionSort
 from src.python.utils import menu
+from src.python.utils import validate
 
 
 def sort_array(arr):
