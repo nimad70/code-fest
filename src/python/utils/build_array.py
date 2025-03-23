@@ -1,16 +1,10 @@
-import random
-from src.python.utils import validate
+"""
+This module contains the function to create an array to sort or search in.
+"""
 
-def display_creat_array_options():
-    """
-    Display the menu for the user to select the type of array creation to perform
-    """
-    option_text = "\n#Select the type of process to perform:\n"
-    print(f"\n{'-' * len(option_text)}")
-    print(option_text)
-    print("1. Build an customized array")
-    print("2. Build a random array by the program")
-    print("3. Exit")
+import random
+from src.python.utils.menu import display_creat_array_options
+from src.python.utils import validate
 
 
 def create_array():
