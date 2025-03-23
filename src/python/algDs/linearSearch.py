@@ -4,6 +4,7 @@ It compares the target with each element in the array until it finds the target 
 The time complexity of the linear search algorithm is O(n) where n is the number of elements in the array.
 """
 import time
+from src.python.utils.search_verify import verify
 
 
 def linearSearch(arr, key):
@@ -32,16 +33,6 @@ def linearSearchTimeCmpx(arr, key):
     execution_time = end - start
 
     return index, execution_time
-
-
-def verify(index):
-    """
-    Verify the index position of the target in the array
-    """
-    if index is not None:
-        print("Target found at index position:", index)
-    else:
-        print("Traget not found in the array")
 
 
 if __name__ == "__main__":
