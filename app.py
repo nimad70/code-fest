@@ -21,7 +21,7 @@ def sort_array(arr):
             break
         elif sort_option == 7:
             """
-            Exits the application.
+            Exits the sort.
             """
             print("\nExiting the sort!")
             break
@@ -34,29 +34,30 @@ if __name__ == "__main__":
     Main function to run the program 
     and display the menu for the user to select the type of sort or search to perform
     """
-    arr = [5, 2, 4, 9, 1, 3]
-    """""
-    pre arry of a cutom array
-    """
+    arr = [5, 2, 4, 6, 1, 3] # The default array
     soret_selected = False
     search_selected = False
 
     while True:
-        menu.display_menu()
-        option = int(input("\n#Enter your choice (1-3):~$ "))
+        try:
+            menu.display_menu()
+            option = int(input("\n#Enter your choice (1-3):~$ "))
 
-        if option == 1:
-            arr = build_array.create_array()
-        elif option == 2:
-            sort_array(arr)
-        elif option == 3:
-            break
-        elif option == 4:
-            """
-            Exits the application.
-            """
-            print("\nExiting the application!\n")
-            break
+            if option == 1:
+                arr = build_array.create_array()
+            elif option == 2:
+                sort_array(arr)
+            elif option == 3:
+                break
+            elif option == 4:
+                """
+                Exits the application.
+                """
+                print("\nExiting the application!\n")
+                break
+            
+            else:
+                validate.invalid_option(num_options=3)
         
-        else:
-            validate.invalid_option(num_options=3)
+        except ValueError:
+            print("\n=> Invalid input. Please enter a valid number.")
