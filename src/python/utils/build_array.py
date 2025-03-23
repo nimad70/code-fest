@@ -14,7 +14,7 @@ def create_array():
     Create an array to sort or search in
     """
     while True:
-        menu.display_creat_array_options()
+        display_creat_array_options()
         array_option = int(input("\n#Enter your choice (1-3):~$ "))
 
         if array_option == 1:
