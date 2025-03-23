@@ -12,6 +12,9 @@ import src.python.utils.validate as validate
 def create_array():
     """
     Create an array to sort or search in
+    
+    Returns:
+        arr: list of integers
     """
     while True:
         display_creat_array_options()
