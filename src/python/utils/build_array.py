@@ -3,10 +3,10 @@ This module contains the function to create an array to sort or search in.
 """
 
 import random
-# from src.python.utils.menu import display_creat_array_options
-# import src.python.utils.validate as validate 
-import menu
-import validate
+from src.python.utils.menu import display_creat_array_options
+import src.python.utils.validate as validate 
+# import menu
+# import validate
 
 
 def create_array():
@@ -18,13 +18,6 @@ def create_array():
         array_option = int(input("\n#Enter your choice (1-3):~$ "))
 
         if array_option == 1:
-            # num = int(input("\n#Enter the number of elements in the array:~$ "))
-            # arr = []
-            # for i in range(num):
-            #     arr_inputs = int(input(f" -> Enter the element {i+1}: "))
-            #     arr.append(arr_inputs)
-
-            # is_valid = False
             while True:
                 try:
                     num = int(input("\n#Enter the number of elements in the array (less than 100):~$ "))
