@@ -41,20 +41,26 @@ def create_array():
                                         print("\n=> Invalid input. Please enter a valid number.")
                                 except:
                                     print("\n=> Invalid input. Please enter a valid number.")
+                        print(f"\n => The array: {arr}")
+                        return arr
                     else:
                         print("\n=> Really? more than <100> inputs?! Please enter a valid number.")
                 except ValueError:
                     print("\n=> Invalid input. Please enter a valid number.")
-                finally:
-                    print(f"\n The array: {arr}")
-                    return arr
         
         elif array_option == 2:
-            num = int(input("\n#Enter the number of elements in the array:~$ "))
-            arr = random.choices(range(0, 99), k=num)
-            print(f"\n The array: {arr}")
-            return arr
-        
+            while True:
+                try:
+                    num = int(input("\n#Enter the number of elements in the array (less than 100):~$ "))
+                    if len(str(num)) <= 2:
+                        arr = random.choices(range(0, 99), k=num)
+                        print(f"\n=> The array: {arr}")
+                        return arr
+                    else:
+                        print("\n=> Really? more than <100> inputs?! Please enter a valid number.")
+                except ValueError:
+                    print("\n=> Invalid input. Please enter a valid number.")
+                    
         elif array_option == 3:
             """
             Exits the build an array.
@@ -68,4 +74,4 @@ def create_array():
 
 
 if __name__ == "__main__":
-    create_array()
+    arr = create_array()
