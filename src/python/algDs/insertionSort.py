@@ -1,3 +1,6 @@
+import time
+
+
 def insertionSort_basic(arr):
     """
     Sort an array using the insertion sort algorithm
@@ -83,13 +86,29 @@ def insertionSort(arr):
     """
     len_arr = len(arr) - 1
     
+    start = time.time()
     sorted_arr = insertionSort_basic(arr)
+    end = time.time()
+    exec_time_sorted_arr = (end - start) * 10**3
+
+    start = time.time()
     sorted_arr_ws = insertionSortWithoutSwap(arr)
+    end = time.time()
+    exec_time_sorted_arr_ws = (end - start) * 10**3
+
+    start = time.time()
     sorted_arr_r = insertionSortRecursive(arr, len_arr)
+    end = time.time()
+    exec_time_sorted_arr_r = (end - start) * 10**3
 
     print(f"Sorted array using basic insertion sort: {sorted_arr}")
+    print("Execution time: {:5.2f}\n".format(exec_time_sorted_arr))
+
     print(f"Sorted array using insertion sort without swapping: {sorted_arr_ws}")
+    print("Execution time: {:5.2f}\n".format(exec_time_sorted_arr_ws))
+
     print(f"Sorted array using recursive insertion sort: {sorted_arr_r}")
+    print("Execution time: {:5.2f}\n".format(exec_time_sorted_arr_r))
 
 
 if __name__ == "__main__":
