@@ -101,7 +101,7 @@ def insertionSort(arr):
     end = time.time()
     exec_time_sorted_arr_r = (end - start) * 10**3
 
-    print(f"Sorted array using basic insertion sort: {sorted_arr}")
+    print(f"\nSorted array using basic insertion sort: {sorted_arr}")
     print("Execution time: {:5.2f}\n".format(exec_time_sorted_arr))
 
     print(f"Sorted array using insertion sort without swapping: {sorted_arr_ws}")
