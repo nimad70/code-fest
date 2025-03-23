@@ -11,10 +11,11 @@ def sort_array(arr):
     Args:
         arr: list of integers to sort
     """
-    menu.display_sort_options()
-    sort_option = int(input("\n#Enter your choice (1-7):~$ "))
 
     while True:
+        menu.display_sort_options()
+        sort_option = int(input("\n#Enter your choice (1-7):~$ "))
+
         if sort_option == 1:
             insertionSort.insertionSort(arr=arr)
             break

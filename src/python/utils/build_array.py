@@ -30,10 +30,10 @@ def create_array():
     #         return arr
     #     else:
     #         print("\nInvalid input. Please enter a valid number.")
-    display_creat_array_options()
-    array_option = int(input("\n#Enter your choice (1-3):~$ "))
-
     while True:
+        display_creat_array_options()
+        array_option = int(input("\n#Enter your choice (1-3):~$ "))
+        
         if array_option == 1:
             num = int(input("\n#Enter the number of elements in the array:~$ "))
             arr = []
