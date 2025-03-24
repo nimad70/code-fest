@@ -20,8 +20,8 @@ def sort_array(arr):
             sort_option = int(input("\n#Enter your choice (1-7):~$ "))
 
             if sort_option == 1:
-                insertionSort.insertionSort(arr=arr)
-                break
+                arr = insertionSort.insertionSort(arr=arr)
+                return arr
             elif sort_option == 7:
                 """
                 Exits the sort.

@@ -7,7 +7,7 @@ def verify(index):
     Verify the index position of the target in the array
     """
     if index is not None:
-        print("\nTarget found at index position:", index)
+        print("\n$:) => Hooray! Target found at index position:", index)
     else:
-        print("\nTraget not found in the array")
+        print("\n$:( => Traget not found in the array")
 

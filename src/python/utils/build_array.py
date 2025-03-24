@@ -16,6 +16,8 @@ def create_array():
     Returns:
         arr: list of integers
     """
+    default_array = [5, 2, 4, 6, 1, 3]
+
     while True:
         try:
             display_creat_array_options()
@@ -63,7 +65,7 @@ def create_array():
                 Exits the build an array.
                 """
                 print("\nContinue with the default array!")
-                print("-> The default array: [5, 2, 4, 6, 1, 3]")
+                print(f"-> The default array: {default_array}")
                 break
             
             else:
@@ -71,6 +73,8 @@ def create_array():
         
         except ValueError:
             print("\n=> Invalid input. Please enter a valid number.")
+    
+    return default_array
 
 
 

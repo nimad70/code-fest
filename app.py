@@ -25,9 +25,9 @@ if __name__ == "__main__":
             if option == 1:
                 arr = build_array.create_array()
             elif option == 2:
-                sort_it.sort_array(arr=arr)
+                arr = sort_it.sort_array(arr)
             elif option == 3:
-                search_it.search_target(arr=arr)                
+                search_it.search_target(arr)                
             elif option == 4:
                 """
                 Exits the application.

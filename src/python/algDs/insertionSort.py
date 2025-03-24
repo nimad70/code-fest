@@ -85,6 +85,8 @@ def insertionSort(arr):
         arr: list of integers to sort
     """
     len_arr = len(arr) - 1
+
+    print("\n=> Unsorted array: ", arr)
     
     start = time.time()
     sorted_arr = insertionSort_basic(arr)
@@ -109,6 +111,8 @@ def insertionSort(arr):
 
     print(f"Sorted array using recursive insertion sort: {sorted_arr_r}")
     print("Execution time: {:.3f}\n".format(exec_time_sorted_arr_r))
+
+    return arr
 
 
 if __name__ == "__main__":

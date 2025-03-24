@@ -49,6 +49,9 @@ def display_linearSearch(arr, key):
     """
     index, execution_time = linearSearchTimeCmpx(arr=arr, key=key)
     verify(index)
+
+    print(f"\n=> The array: {arr}")
+    print(f"=> The target key: {key}")
     print(f"=> Execution time: {execution_time*10**3:.3f} seconds")
 
 
