@@ -30,7 +30,7 @@ def create_array():
                             for i in range(num):
                                 while True:
                                     try:
-                                        array_input = int(input(f"\n#Enter the element {i+1} ( <= 5 digits): "))
+                                        array_input = int(input(f"\n#Enter the element {i+1} (<= 5 digits): "))
                                         if len(str(array_input)) <= 5:
                                             arr.append(array_input)
                                             break
