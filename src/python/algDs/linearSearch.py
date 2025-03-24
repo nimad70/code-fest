@@ -38,6 +38,15 @@ def linearSearchTimeCmpx(arr, key):
     return index, execution_time
 
 
+def display_linearSearch(arr, key):
+    """
+    Display the result of the linear search operation
+    """
+    index, execution_time = linearSearchTimeCmpx(arr=arr, key=key)
+    verify(index)
+    print(f"\n=> Execution time: {execution_time*10**3:.3f} seconds")
+
+
 if __name__ == "__main__":
     arr = [i for i in range(1, 11)]
     
