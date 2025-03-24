@@ -5,6 +5,8 @@ from src.python.utils import menu
 from src.python.utils import validate
 from src.python.algDs import linearSearch
 from src.python.algDs import binarySearch
+from src.python.algDs import binary_search_leftmost_item
+from src.python.algDs import binary_search_rightmost_item
 
 
 def search_target(arr):
@@ -26,7 +28,7 @@ def search_target(arr):
                     try:
                         key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
                         if len(str(key)) <= 5:
-                            linearSearch.display_linearSearch(arr=arr, key=key)
+                            linearSearch.display_linear_search(arr=arr, key=key)
                             break                       
                         else:
                             print("\n=> Really? more than 5 digits?! Please enter a valid number.")
@@ -40,7 +42,7 @@ def search_target(arr):
                     try:
                         key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
                         if len(str(key)) <= 5:
-                            binarySearch.display_binarySearch(arr=arr, key=key)
+                            binarySearch.display_binary_search(arr=arr, key=key)
                             break                       
                         else:
                             print("\n=> Really? more than 5 digits?! Please enter a valid number.")
@@ -48,13 +50,13 @@ def search_target(arr):
                         print("\n=> Invalid input. Please enter a valid number.")
                     break
             
-            # binary search in an array contains duplicates finding the leftmost index
+            # binary search in an array contains duplicates to find the leftmost index
             elif search_option == 3:
                 while True:
                     try:
                         key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
                         if len(str(key)) <= 5:
-                            binarySearch.display_binarySearch_leftmost(arr=arr, key=key)
+                            binary_search_leftmost_item.display_binary_search_leftmost(arr=arr, key=key)
                             break                       
                         else:
                             print("\n=> Really? more than 5 digits?! Please enter a valid number.")
@@ -62,13 +64,13 @@ def search_target(arr):
                         print("\n=> Invalid input. Please enter a valid number.")
                     break
             
-            # binary search in an array contains duplicates finding the rightmost index
+            # binary search in an array contains duplicates to find the rightmost index
             elif search_option == 4:
                 while True:
                     try:
                         key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
                         if len(str(key)) <= 5:
-                            binarySearch.display_binarySearch_rightmost(arr=arr, key=key)
+                            binary_search_rightmost_item.display_binary_search_rightmost(arr=arr, key=key)
                             break                       
                         else:
                             print("\n=> Really? more than 5 digits?! Please enter a valid number.")
