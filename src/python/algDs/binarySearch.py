@@ -8,9 +8,6 @@ import time
 import random
 # from src.python.utils.search_verify import verify
 
-"""
-Verify whether the target is in the array
-"""
 
 def verify(index):
     """
@@ -22,36 +19,21 @@ def verify(index):
         print("\n$:( => Traget not found in the array")
 
 
-def ceil(l, r, divident=2):
-    """
-    Return the ceiling value of a number
-    """
-    return int(-1 * ((-1 * (l+r)) // divident))
-
-
-def floor(l, r, divident=2):
-    """
-    Return the floor value of a number
-    """
-    return int((l+r) // divident)
-
-
 def binary_search_floor(arr, key):
     """
     Perform a linear search by taking the floor of ((l+r)/2) on an array of integers.
     """
-    l = 0
-    r = len(arr) - 1 
+    left = 0
+    right = len(arr) - 1 
     
-    while l <= r:
-        # mid = floor(l, r)
-        mid = (l + r) // 2
-        if arr[mid] == key:
-            return mid
-        elif arr[mid] < key:
-            l = mid + 1
+    while left <= right:
+        midpoint = int((left+right) // 2) # floor of ((l+r)/2)
+        if arr[midpoint] == key:
+            return midpoint
+        elif arr[midpoint] < key:
+            left = midpoint + 1
         else:
-            r = mid - 1
+            right = midpoint - 1
     
     return None
 
@@ -61,58 +43,17 @@ def binary_search_ceil(arr, key):
     Perform a linear search by taking the ceiling of ((l+r)/2) on an array of integers.
     This implementation of binary search returns the index of the rightmost element in case of duplicates.
     """
-    l = 0
-    r = len(arr) - 1
+    left = 0
+    right = len(arr) - 1
     
-    while l != r:
-        mid = ceil(l, r)
-        if key < arr[mid]:
-            r = mid - 1
+    while left != right:
+        midpoint = int(-1 * ((-1 * (left+right)) // 2)) # ceil of ((l+r)/2)
+        if key < arr[midpoint]:
+            right = midpoint - 1
         else:
-            l = mid
-    if arr[l] == key:
-        return l
-    
-    return None
-
-
-def binary_search_leftmost(arr, key):
-    """
-    This implementation of binary search returns the index of the leftmost element in case of duplicates.
-    """
-    l = 0
-    r = len(arr)
-    
-    while l < r:
-        mid = floor(l, r)
-        if key > arr[mid]:
-            l = mid + 1
-        else:
-            r = mid
-    
-    if arr[l] == key:
-        return l
-    
-    return None
-
-
-
-def binary_search_rightmost(arr, key):
-    """
-    This implementation of binary search returns the index of the rightmost element in case of duplicates.
-    """
-    l = 0
-    r = len(arr)
-    
-    while l < r:
-        mid = floor(l, r)
-        if key < arr[mid]:
-            r = mid
-        else:
-            l = mid + 1
-    
-    if arr[r-1] == key:
-        return r-1
+            left = midpoint
+    if arr[left] == key:
+        return left
     
     return None
 
@@ -141,30 +82,6 @@ def binarySearch_Ceil_TimeCmpx(arr, key):
     return index, execution_time
 
 
-def binarySearch_rightmost_TimeCmpx(arr, key):
-    """
-    Perform a linear search by taking the ceiling of ((l+r)/2) on an array of integers and return the execution time.
-    """
-    start = time.time()
-    index = binary_search_rightmost(arr=arr, key=key)
-    end = time.time()
-    execution_time = end - start
-
-    return index, execution_time
-
-
-def binarySearch_leftmost_TimeCmpx(arr, key):
-    """
-    Perform a linear search by taking the ceiling of ((l+r)/2) on an array of integers and return the execution time.
-    """
-    start = time.time()
-    index = binary_search_leftmost(arr=arr, key=key)
-    end = time.time()
-    execution_time = end - start
-
-    return index, execution_time
-
-
 def display_binarySearch(arr, key):
     """
     Display the result of the binary search operation
@@ -181,35 +98,10 @@ def display_binarySearch(arr, key):
     print(f"=> Execution time by taking the floor of ((l+r)/2): {execution_time_floor*10**3:.3f} seconds")
 
 
-def display_binarySearch_rightmost(arr, key):
-    """
-    Display the result of the binary search operation
-    """
-    print(f"\n=> The array: {arr}")
-    print(f"=> The target key: {key}")
-
-    index, execution_time_ceil = binarySearch_rightmost_TimeCmpx(arr=arr, key=key)
-    verify(index)
-    print(f"=> Execution time by taking the ceiling of ((l+r)/2): {execution_time_ceil*10**3:.3f} seconds")
-
-
-def display_binarySearch_leftmost(arr, key):
-    """
-    Display the result of the binary search operation
-    """
-    print(f"\n=> The array: {arr}")
-    print(f"=> The target key: {key}")
-
-    index, execution_time_ceil = binarySearch_leftmost_TimeCmpx(arr=arr, key=key)
-    verify(index)
-    print(f"=> Execution time by taking the ceiling of ((l+r)/2): {execution_time_ceil*10**3:.3f} seconds")
-
-
 if __name__ == "__main__":
     arr = random.choices(range(0, 99), k=10)
     arr.sort()
     print(arr)
-
 
     num = int(input("\n#Enter the number to search in the array:~$ "))
     index = binary_search_floor(arr, key=num)
@@ -223,14 +115,3 @@ if __name__ == "__main__":
     display_binarySearch(arr, key=7)
     display_binarySearch(arr, key=12)
 
-    print("-" * 80)
-    arr_dups = [1, 2, 2, 3, 3, 3, 4, 4, 5, 5]
-    print(arr_dups)
-
-    display_binarySearch_leftmost(arr=arr_dups, key=3)
-    display_binarySearch_leftmost(arr=arr_dups, key=4)
-    display_binarySearch_leftmost(arr=arr_dups, key=5)
-
-    display_binarySearch_rightmost(arr=arr_dups, key=3)
-    display_binarySearch_rightmost(arr=arr_dups, key=4)
-    display_binarySearch_rightmost(arr=arr_dups, key=5)
