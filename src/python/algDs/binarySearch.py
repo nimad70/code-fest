@@ -35,6 +35,9 @@ def floor(l, r, divident=2):
 
 
 def binarySearchFloor(arr, key):
+    """
+    Perform a linear search by taking the floor of ((l+r)/2) on an array of integers.
+    """
     l = 0
     r = len(arr) - 1 
     
@@ -51,6 +54,10 @@ def binarySearchFloor(arr, key):
 
 
 def binarySearchCeil(arr, key):
+    """
+    Perform a linear search by taking the ceiling of ((l+r)/2) on an array of integers.
+    This implementation of binary search returns the index of the rightmost element in case of duplicates.
+    """
     l = 0
     r = len(arr) - 1
     
@@ -64,6 +71,48 @@ def binarySearchCeil(arr, key):
         return l
     
     return None
+
+
+def binary_search_leftmost(arr, key):
+    """
+    This implementation of binary search returns the index of the leftmost element in case of duplicates.
+    """
+    l = 0
+    r = len(arr)
+    
+    while l < r:
+        mid = floor(l, r)
+        if key > arr[mid]:
+            l = mid + 1
+        else:
+            r = mid
+    
+    if arr[l] == key:
+        return l
+    
+    return None
+
+
+
+def binary_search_rightmost(arr, key):
+    """
+    This implementation of binary search returns the index of the rightmost element in case of duplicates.
+    """
+    l = 0
+    r = len(arr)
+    
+    while l < r:
+        mid = floor(l, r)
+        if key < arr[mid]:
+            r = mid
+        else:
+            l = mid + 1
+    
+    if arr[r-1] == key:
+        return r-1
+    
+    return None
+
 
 def binarySearchFloorTimeCmpx(arr, key):
     """
