@@ -19,7 +19,6 @@ def linearSearch(arr, key):
     return:
         index: index of the key in the array
     """
-    i = 0
     if len(arr) == 0:
         return None
     elif len(arr) == 1:
