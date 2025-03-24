@@ -102,13 +102,13 @@ def insertionSort(arr):
     exec_time_sorted_arr_r = (end - start) * 10**3
 
     print(f"\nSorted array using basic insertion sort: {sorted_arr}")
-    print("Execution time: {:5.2f}\n".format(exec_time_sorted_arr))
+    print("Execution time: {:.3f}\n".format(exec_time_sorted_arr))
 
     print(f"Sorted array using insertion sort without swapping: {sorted_arr_ws}")
-    print("Execution time: {:5.2f}\n".format(exec_time_sorted_arr_ws))
+    print("Execution time: {:.3f}\n".format(exec_time_sorted_arr_ws))
 
     print(f"Sorted array using recursive insertion sort: {sorted_arr_r}")
-    print("Execution time: {:5.2f}\n".format(exec_time_sorted_arr_r))
+    print("Execution time: {:.3f}\n".format(exec_time_sorted_arr_r))
 
 
 if __name__ == "__main__":
