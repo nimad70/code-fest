@@ -23,7 +23,7 @@ def linearSearch(arr, key):
         return None
     elif len(arr) == 1:
         if arr[0] == key:
-            return i
+            return 0
     else:
         for i in range(len(arr)):
             if arr[i] == key:
