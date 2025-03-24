@@ -20,13 +20,23 @@ def search_target(arr):
             search_option = int(input("\n#Enter your choice (1-7):~$ "))
 
             if search_option == 1:
-                linearSearch.linearSearch(arr=arr)
-                break
+                while True:
+                    try:
+                        key = int(input("\n#Enter a number to search inside the array (<= 5 digits):~$ "))
+                        if len(str(key)) <= 5:
+                            linearSearch.display_linearSearch(arr=arr, key=key)
+                            break                       
+                        else:
+                            print("\n=> Really? more than 5 digits?! Please enter a valid number.")
+                    except ValueError:
+                        print("\n=> Invalid input. Please enter a valid number.")
+    
+                    break
             elif search_option == 7:
                 """
-                Exits the sort.
+                Exits the search.
                 """
-                print("\nExiting the sort!")
+                print("\nExiting the search!")
                 break
             else:
                 validate.invalid_option(num_options=7)
