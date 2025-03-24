@@ -17,12 +17,12 @@ def search_target(arr):
     while True:
         try:
             menu.display_search_options()
-            search_option = int(input("\n#Enter your choice (1-7):~$ "))
+            search_option = int(input("\n#Enter your choice (1-3):~$ "))
 
             if search_option == 1:
                 while True:
                     try:
-                        key = int(input("\n#Enter a number to search inside the array (<= 5 digits):~$ "))
+                        key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
                         if len(str(key)) <= 5:
                             linearSearch.display_linearSearch(arr=arr, key=key)
                             break                       
@@ -32,7 +32,7 @@ def search_target(arr):
                         print("\n=> Invalid input. Please enter a valid number.")
     
                     break
-            elif search_option == 7:
+            elif search_option == 3:
                 """
                 Exits the search.
                 """
