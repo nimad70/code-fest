@@ -114,7 +114,7 @@ def binary_search_rightmost(arr, key):
     return None
 
 
-def binarySearchFloorTimeCmpx(arr, key):
+def binarySearch_Floor_TimeCmpx(arr, key):
     """
     Perform a linear search by taking the floor of ((l+r)/2) on an array of integers and return the execution time.
     """
@@ -126,12 +126,36 @@ def binarySearchFloorTimeCmpx(arr, key):
     return index, execution_time
 
 
-def binarySearchCeilTimeCmpx(arr, key):
+def binarySearch_Ceil_TimeCmpx(arr, key):
     """
     Perform a linear search by taking the ceiling of ((l+r)/2) on an array of integers and return the execution time.
     """
     start = time.time()
     index = binarySearchCeil(arr=arr, key=key)
+    end = time.time()
+    execution_time = end - start
+
+    return index, execution_time
+
+
+def binarySearch_rightmost_TimeCmpx(arr, key):
+    """
+    Perform a linear search by taking the ceiling of ((l+r)/2) on an array of integers and return the execution time.
+    """
+    start = time.time()
+    index = binary_search_rightmost(arr=arr, key=key)
+    end = time.time()
+    execution_time = end - start
+
+    return index, execution_time
+
+
+def binarySearch_leftmost_TimeCmpx(arr, key):
+    """
+    Perform a linear search by taking the ceiling of ((l+r)/2) on an array of integers and return the execution time.
+    """
+    start = time.time()
+    index = binary_search_leftmost(arr=arr, key=key)
     end = time.time()
     execution_time = end - start
 
@@ -145,11 +169,35 @@ def display_binarySearch(arr, key):
     print(f"\n=> The array: {arr}")
     print(f"=> The target key: {key}")
 
-    index, execution_time_floor = binarySearchFloorTimeCmpx(arr=arr, key=key)
+    index, execution_time_ceil = binarySearch_Floor_TimeCmpx(arr=arr, key=key)
+    verify(index)
+    print(f"=> Execution time by taking the ceiling of ((l+r)/2): {execution_time_ceil*10**3:.3f} seconds")
+
+    index, execution_time_floor = binarySearch_Ceil_TimeCmpx(arr=arr, key=key)
     verify(index)
     print(f"=> Execution time by taking the floor of ((l+r)/2): {execution_time_floor*10**3:.3f} seconds")
 
-    index, execution_time_ceil = binarySearchFloorTimeCmpx(arr=arr, key=key)
+
+def display_binarySearch_rightmost(arr, key):
+    """
+    Display the result of the binary search operation
+    """
+    print(f"\n=> The array: {arr}")
+    print(f"=> The target key: {key}")
+
+    index, execution_time_ceil = binarySearch_rightmost_TimeCmpx(arr=arr, key=key)
+    verify(index)
+    print(f"=> Execution time by taking the ceiling of ((l+r)/2): {execution_time_ceil*10**3:.3f} seconds")
+
+
+def display_binarySearch_leftmost(arr, key):
+    """
+    Display the result of the binary search operation
+    """
+    print(f"\n=> The array: {arr}")
+    print(f"=> The target key: {key}")
+
+    index, execution_time_ceil = binarySearch_leftmost_TimeCmpx(arr=arr, key=key)
     verify(index)
     print(f"=> Execution time by taking the ceiling of ((l+r)/2): {execution_time_ceil*10**3:.3f} seconds")
 
@@ -162,3 +210,15 @@ if __name__ == "__main__":
     display_binarySearch(arr, key=5)
     display_binarySearch(arr, key=7)
     display_binarySearch(arr, key=12)
+
+    print("-" * 80)
+    arr_dups = [1, 2, 2, 3, 3, 3, 4, 4, 5, 5]
+    print(arr_dups)
+
+    display_binarySearch_leftmost(arr=arr_dups, key=3)
+    display_binarySearch_leftmost(arr=arr_dups, key=4)
+    display_binarySearch_leftmost(arr=arr_dups, key=5)
+
+    display_binarySearch_rightmost(arr=arr_dups, key=3)
+    display_binarySearch_rightmost(arr=arr_dups, key=4)
+    display_binarySearch_rightmost(arr=arr_dups, key=5)
