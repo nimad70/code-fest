@@ -28,7 +28,7 @@ def binary_search_rightmost(arr, key):
     return None
 
 
-def binarySearch_rightmost_TimeCmpx(arr, key):
+def binary_search_rightmost_exec_time(arr, key):
     """
     Perform a linear search by taking the ceiling value of ((l+r)/2) on an array of integers and return the execution time.
     """
@@ -40,14 +40,14 @@ def binarySearch_rightmost_TimeCmpx(arr, key):
     return index, execution_time
 
 
-def display_binarySearch_rightmost(arr, key):
+def display_binary_search_rightmost(arr, key):
     """
     Display the result of the binary search operation
     """
     print(f"\n=> The array: {arr}")
     print(f"=> The target key: {key}")
 
-    index, execution_time_ceil = binarySearch_rightmost_TimeCmpx(arr=arr, key=key)
+    index, execution_time_ceil = binary_search_rightmost_exec_time(arr=arr, key=key)
     verify(index)
     print(f"=> Execution time by taking the ceiling value of ((l+r)/2): {execution_time_ceil*10**3:.3f} seconds")
 
@@ -57,6 +57,6 @@ if __name__ == "__main__":
     arr_dups = [1, 2, 2, 3, 3, 3, 4, 4, 5, 5]
     print(arr_dups)
 
-    display_binarySearch_rightmost(arr=arr_dups, key=3)
-    display_binarySearch_rightmost(arr=arr_dups, key=4)
-    display_binarySearch_rightmost(arr=arr_dups, key=5)
+    display_binary_search_rightmost(arr=arr_dups, key=3)
+    display_binary_search_rightmost(arr=arr_dups, key=4)
+    display_binary_search_rightmost(arr=arr_dups, key=5)

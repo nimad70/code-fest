@@ -6,17 +6,7 @@ The time complexity of the binary search algorithm is O(log n) where n is the nu
 """
 import time
 import random
-# from src.python.utils.search_verify import verify
-
-
-def verify(index):
-    """
-    Verify the index position of the target in the array
-    """
-    if index is not None:
-        print("\n$:) => Hooray! Target found at index position:", index)
-    else:
-        print("\n$:( => Traget not found in the array")
+from src.python.utils.search_verify import verify
 
 
 def binary_search_floor(arr, key):
@@ -58,7 +48,7 @@ def binary_search_ceil(arr, key):
     return None
 
 
-def binarySearch_Floor_TimeCmpx(arr, key):
+def binary_search_floor_exec_time(arr, key):
     """
     Perform a linear search by taking the floor of ((l+r)/2) on an array of integers and return the execution time.
     """
@@ -70,7 +60,7 @@ def binarySearch_Floor_TimeCmpx(arr, key):
     return index, execution_time
 
 
-def binarySearch_Ceil_TimeCmpx(arr, key):
+def binary_search_ceil_exec_time(arr, key):
     """
     Perform a linear search by taking the ceiling of ((l+r)/2) on an array of integers and return the execution time.
     """
@@ -82,18 +72,18 @@ def binarySearch_Ceil_TimeCmpx(arr, key):
     return index, execution_time
 
 
-def display_binarySearch(arr, key):
+def display_binary_search(arr, key):
     """
     Display the result of the binary search operation
     """
     print(f"\n=> The array: {arr}")
     print(f"=> The target key: {key}")
 
-    index, execution_time_ceil = binarySearch_Floor_TimeCmpx(arr=arr, key=key)
+    index, execution_time_ceil = binary_search_floor_exec_time(arr=arr, key=key)
     verify(index)
     print(f"=> Execution time by taking the ceiling of ((l+r)/2): {execution_time_ceil*10**3:.3f} seconds")
 
-    index, execution_time_floor = binarySearch_Ceil_TimeCmpx(arr=arr, key=key)
+    index, execution_time_floor = binary_search_ceil_exec_time(arr=arr, key=key)
     verify(index)
     print(f"=> Execution time by taking the floor of ((l+r)/2): {execution_time_floor*10**3:.3f} seconds")
 
@@ -111,7 +101,7 @@ if __name__ == "__main__":
         print(f"\n=> The target key: {num} not found in the array")
 
     arr = [i for i in range(1, 11)]
-    display_binarySearch(arr, key=5)
-    display_binarySearch(arr, key=7)
-    display_binarySearch(arr, key=12)
+    display_binary_search(arr, key=5)
+    display_binary_search(arr, key=7)
+    display_binary_search(arr, key=12)
 
