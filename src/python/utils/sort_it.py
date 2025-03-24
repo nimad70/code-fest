@@ -15,17 +15,20 @@ def sort_array(arr):
     """
 
     while True:
-        menu.display_sort_options()
-        sort_option = int(input("\n#Enter your choice (1-7):~$ "))
+        try:
+            menu.display_sort_options()
+            sort_option = int(input("\n#Enter your choice (1-7):~$ "))
 
-        if sort_option == 1:
-            insertionSort.insertionSort(arr=arr)
-            break
-        elif sort_option == 7:
-            """
-            Exits the sort.
-            """
-            print("\nExiting the sort!")
-            break
-        else:
-            validate.invalid_option(num_options=7)
+            if sort_option == 1:
+                insertionSort.insertionSort(arr=arr)
+                break
+            elif sort_option == 7:
+                """
+                Exits the sort.
+                """
+                print("\nExiting the sort!")
+                break
+            else:
+                validate.invalid_option(num_options=7)
+        except:
+            print("\n=> Invalid input. Please enter a valid number.")
