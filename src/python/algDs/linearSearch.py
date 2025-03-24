@@ -27,6 +27,9 @@ def linearSearch(arr, key):
         
 
 def linearSearchTimeCmpx(arr, key):
+    """
+    Perform a linear search on an array of integers and return the execution time.
+    """
     start = time.time()
     index = linearSearch(arr=arr, key=key)
     end = time.time()
