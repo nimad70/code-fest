@@ -1,3 +1,7 @@
+"""
+Verify whether the target is in the array
+"""
+
 def verify(index):
     """
     Verify the index position of the target in the array
