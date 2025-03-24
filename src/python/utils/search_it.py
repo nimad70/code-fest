@@ -3,8 +3,8 @@ This module is responsible for searching for the target in array based on the us
 """
 from src.python.utils import menu
 from src.python.utils import validate
-from src.python.algDs import linearSearch
-from src.python.algDs import binarySearch
+from src.python.algDs import linear_search
+from src.python.algDs import binary_search
 from src.python.algDs import binary_search_leftmost_item
 from src.python.algDs import binary_search_rightmost_item
 
@@ -28,7 +28,7 @@ def search_target(arr):
                     try:
                         key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
                         if len(str(key)) <= 5:
-                            linearSearch.display_linear_search(arr=arr, key=key)
+                            linear_search.display_linear_search(arr=arr, key=key)
                             break                       
                         else:
                             print("\n=> Really? more than 5 digits?! Please enter a valid number.")
@@ -42,7 +42,7 @@ def search_target(arr):
                     try:
                         key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
                         if len(str(key)) <= 5:
-                            binarySearch.display_binary_search(arr=arr, key=key)
+                            binary_search.display_binary_search(arr=arr, key=key)
                             break                       
                         else:
                             print("\n=> Really? more than 5 digits?! Please enter a valid number.")
