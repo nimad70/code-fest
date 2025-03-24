@@ -24,7 +24,9 @@ def display_search_options():
     print(option_text)
     print("1. Linear search")
     print("2. Binary search")
-    print("3. Exit")
+    print("3. Binary search - finding the leftmost index in an array contains duplicates")
+    print("4. Binary search - finding the rightmost index in an array contains duplicates")
+    print("5. Exit")
 
 
 def display_creat_array_options():

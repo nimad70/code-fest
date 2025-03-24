@@ -1,9 +1,10 @@
 """
 This module is responsible for searching for the target in array based on the user's input.
 """
-from src.python.algDs import linearSearch
 from src.python.utils import menu
 from src.python.utils import validate
+from src.python.algDs import linearSearch
+from src.python.algDs import binarySearch
 
 
 def search_target(arr):
@@ -18,7 +19,8 @@ def search_target(arr):
         try:
             menu.display_search_options()
             search_option = int(input("\n#Enter your choice (1-3):~$ "))
-
+            
+            # Linear search
             if search_option == 1:
                 while True:
                     try:
@@ -30,9 +32,51 @@ def search_target(arr):
                             print("\n=> Really? more than 5 digits?! Please enter a valid number.")
                     except ValueError:
                         print("\n=> Invalid input. Please enter a valid number.")
-    
                     break
+            
+            # binary search
+            elif search_option == 2:
+                while True:
+                    try:
+                        key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
+                        if len(str(key)) <= 5:
+                            binarySearch.display_binarySearch(arr=arr, key=key)
+                            break                       
+                        else:
+                            print("\n=> Really? more than 5 digits?! Please enter a valid number.")
+                    except ValueError:
+                        print("\n=> Invalid input. Please enter a valid number.")
+                    break
+            
+            # binary search in an array contains duplicates finding the leftmost index
             elif search_option == 3:
+                while True:
+                    try:
+                        key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
+                        if len(str(key)) <= 5:
+                            binarySearch.display_binarySearch_leftmost(arr=arr, key=key)
+                            break                       
+                        else:
+                            print("\n=> Really? more than 5 digits?! Please enter a valid number.")
+                    except ValueError:
+                        print("\n=> Invalid input. Please enter a valid number.")
+                    break
+            
+            # binary search in an array contains duplicates finding the rightmost index
+            elif search_option == 4:
+                while True:
+                    try:
+                        key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
+                        if len(str(key)) <= 5:
+                            binarySearch.display_binarySearch_rightmost(arr=arr, key=key)
+                            break                       
+                        else:
+                            print("\n=> Really? more than 5 digits?! Please enter a valid number.")
+                    except ValueError:
+                        print("\n=> Invalid input. Please enter a valid number.")
+                    break
+            
+            elif search_option == 5:
                 """
                 Exits the search.
                 """
