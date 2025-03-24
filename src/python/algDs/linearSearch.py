@@ -20,9 +20,15 @@ def linearSearch(arr, key):
         index: index of the key in the array
     """
     i = 0
-    for i in range(len(arr)):
-        if arr[i] == key:
+    if len(arr) == 0:
+        return None
+    elif len(arr) == 1:
+        if arr[0] == key:
             return i
+    else:
+        for i in range(len(arr)):
+            if arr[i] == key:
+                return i
     return None
         
 
