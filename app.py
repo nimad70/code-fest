@@ -5,6 +5,7 @@ from src.python.utils import validate
 from src.python.utils import build_array
 from src.python.utils import menu
 from src.python.utils import sort_it
+from src.python.utils import search_it
 
 
 if __name__ == "__main__":
@@ -24,9 +25,9 @@ if __name__ == "__main__":
             if option == 1:
                 arr = build_array.create_array()
             elif option == 2:
-                sort_it.sort_array(arr)
+                sort_it.sort_array(arr=arr)
             elif option == 3:
-                break
+                search_it.search_target(arr=arr)                
             elif option == 4:
                 """
                 Exits the application.
