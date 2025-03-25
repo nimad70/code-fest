@@ -1,9 +1,13 @@
+"""
+Insertion sort is a simple sorting algorithm that works the way we sort playing cards in our hands.
+It is less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
+"""
 import time
 
 
-def insertionSort_basic(arr):
+def insertion_sort(arr):
     """
-    Sort an array using the insertion sort algorithm
+    Sort an array using the insertion sort algorithm.
 
     Args:
         arr: list of integers to sort
@@ -28,93 +32,31 @@ def insertionSort_basic(arr):
     return arr
 
 
-def insertionSortWithoutSwap(arr):
+def insertion_sort_exec_time(arr):
     """
-    Sort an array using the insertion sort algorithm without swapping 
-
-    Args:
-    arr: list of integers to sort
-
-    return:
-        arr: sorted list of integers
-    """
-    i = 1
-    n = len(arr)
-
-    if n <= 1:
-        return
-    else:
-        while i < n:
-            key = arr[i]
-            j = i
-            while j > 0 and arr[j-1] > key:
-                arr[j] = arr[j-1]
-                j -= 1
-            arr[j] = key
-            i += 1
-    return arr
-
-
-def insertionSortRecursive(arr, n):
-    """
-    Sort an array using the insertion sort algorithm recursively
-    
-    Args:
-        arr: list of integers to sort
-    
-    return:
-        arr: sorted list of integers
-    """
-    if n <= 1:
-        return
-    elif n > 0:
-        insertionSortRecursive(arr, n-1)
-        key = arr[n]
-        j = n-1
-        while j >= 0 and arr[j] > key:
-            arr[j+1] = arr[j]
-            j -= 1
-        arr[j+1] = key
-    return arr
-
-
-def insertionSort(arr):
-    """
-    Sort an array using the insertion sort algorithm variations
+    Sort an array using the insertion sort algorithm
         Args:
         arr: list of integers to sort
     """
-    len_arr = len(arr) - 1
+    start = time.time()
+    sorted_array = insertion_sort(arr)
+    end = time.time()
+    exec_time = (end - start) * 10**3
 
+    return sorted_array, exec_time
+
+
+
+def display_insertion_sort(arr):
     print("\n=> Unsorted array: ", arr)
-    
-    start = time.time()
-    sorted_arr = insertionSort_basic(arr)
-    end = time.time()
-    exec_time_sorted_arr = (end - start) * 10**3
+    sorted_arr, exec_time = insertion_sort_exec_time(arr)
 
-    start = time.time()
-    sorted_arr_ws = insertionSortWithoutSwap(arr)
-    end = time.time()
-    exec_time_sorted_arr_ws = (end - start) * 10**3
+    print(f"Sorted array using basic insertion sort: {sorted_arr}")
+    print("Execution time: {:.3f}\n".format(exec_time))
 
-    start = time.time()
-    sorted_arr_r = insertionSortRecursive(arr, len_arr)
-    end = time.time()
-    exec_time_sorted_arr_r = (end - start) * 10**3
-
-    print(f"\nSorted array using basic insertion sort: {sorted_arr}")
-    print("Execution time: {:.3f}\n".format(exec_time_sorted_arr))
-
-    print(f"Sorted array using insertion sort without swapping: {sorted_arr_ws}")
-    print("Execution time: {:.3f}\n".format(exec_time_sorted_arr_ws))
-
-    print(f"Sorted array using recursive insertion sort: {sorted_arr_r}")
-    print("Execution time: {:.3f}\n".format(exec_time_sorted_arr_r))
-
-    return arr
+    return sorted_arr
 
 
 if __name__ == "__main__":
     arr = [3, 4, 1, 2, 5]
-    insertionSort(arr=arr)
+    sorted_arr = display_insertion_sort(arr=arr)

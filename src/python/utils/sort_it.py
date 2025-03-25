@@ -2,6 +2,8 @@
 This module contains the sort_array function which performs the sort operation based on the user's selection.
 """
 from src.python.algDs import insertion_sort
+from src.python.algDs import insertion_sort_fast
+from src.python.algDs import insertion_sort_recursive
 from src.python.utils import menu
 from src.python.utils import validate
 
@@ -20,7 +22,9 @@ def sort_array(arr):
             sort_option = int(input("\n#Enter your choice (1-7):~$ "))
 
             if sort_option == 1:
-                arr = insertion_sort.insertionSort(arr=arr)
+                arr = insertion_sort.display_insertion_sort(arr=arr)
+                arr = insertion_sort_fast.display_insertion_sort(arr=arr)
+                arr = insertion_sort_recursive.display_insertion_sort(arr=arr)
                 return arr
             elif sort_option == 7:
                 """
