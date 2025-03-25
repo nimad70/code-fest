@@ -5,6 +5,7 @@ from src.python.utils import menu
 from src.python.utils import validate
 from src.python.algDs import linear_search
 from src.python.algDs import binary_search
+from src.python.algDs import binary_search_ceil
 from src.python.algDs import binary_search_leftmost_item
 from src.python.algDs import binary_search_rightmost_item
 
@@ -26,6 +27,7 @@ def search_target(arr):
             if search_option == 1:
                 while True:
                     try:
+                        print(f"\n=> The array: {arr}")
                         key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
                         if len(str(key)) <= 5:
                             linear_search.display_linear_search(arr=arr, key=key)
@@ -40,9 +42,11 @@ def search_target(arr):
             elif search_option == 2:
                 while True:
                     try:
+                        print(f"\n=> The array: {arr}")
                         key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
                         if len(str(key)) <= 5:
                             binary_search.display_binary_search(arr=arr, key=key)
+                            binary_search_ceil.display_binary_search(arr=arr, key=key)
                             break                       
                         else:
                             print("\n=> Really? more than 5 digits?! Please enter a valid number.")
@@ -54,6 +58,7 @@ def search_target(arr):
             elif search_option == 3:
                 while True:
                     try:
+                        print(f"\n=> The array: {arr}")
                         key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
                         if len(str(key)) <= 5:
                             binary_search_leftmost_item.display_binary_search_leftmost(arr=arr, key=key)
@@ -68,6 +73,7 @@ def search_target(arr):
             elif search_option == 4:
                 while True:
                     try:
+                        print(f"\n=> The array: {arr}")
                         key = int(input("\n#Enter a number to search in the array (<= 5 digits):~$ "))
                         if len(str(key)) <= 5:
                             binary_search_rightmost_item.display_binary_search_rightmost(arr=arr, key=key)

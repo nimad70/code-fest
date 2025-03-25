@@ -1,7 +1,6 @@
 """
-Linear search is a simple search algorithm that searches for a target in an array of integers.
-It compares the target with each element in the array until it finds the target or reaches the end of the array.
-The time complexity of the linear search algorithm is O(n) where n is the number of elements in the array.
+Linear search is a basic algorithm that checks each element in an array sequentially until it finds the target or reaches the end. 
+Its time complexity is O(n).
 """
 import time
 import random
@@ -17,7 +16,7 @@ def linear_search(arr, key):
         arr: list of integers to search
         key: integer to search for in the array
         
-    return:
+    Return:
         index: index of the key in the array
     """
     if len(arr) == 0:
@@ -35,6 +34,14 @@ def linear_search(arr, key):
 def linear_search_exec_time(arr, key):
     """
     Perform a linear search on an array of integers and return the execution time.
+
+    Args:
+        arr: list of integers to sort
+        key: integer to search for in the array
+    
+    Returns:
+        index: index of the key in the array
+        exec_time: execution time in milliseconds
     """
     start = time.time()
     index = linear_search(arr=arr, key=key)
@@ -47,6 +54,10 @@ def linear_search_exec_time(arr, key):
 def display_linear_search(arr, key):
     """
     Display the result of the linear search operation
+    
+    Args:
+        arr: list of integers to sort
+        key: integer to search for in the arr
     """
     index, execution_time = linear_search_exec_time(arr=arr, key=key)
     verify(index)

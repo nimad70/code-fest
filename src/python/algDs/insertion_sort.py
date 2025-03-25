@@ -12,7 +12,7 @@ def insertion_sort(arr):
     Args:
         arr: list of integers to sort
     
-    return:
+    Return:
         arr: sorted list of integers
     """
     i = 1

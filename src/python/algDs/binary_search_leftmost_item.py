@@ -11,12 +11,19 @@ from src.python.utils.search_verify import verify
 def binary_search_leftmost(arr, key):
     """
     This implementation of binary search returns the index of the leftmost element in case of duplicates.
+    
+    Args:
+        arr: list of integers to search
+        key: integer to search for in the array
+        
+    Return:
+        index: index of the key in the array
     """
     left = 0
     right = len(arr)
     
     while left < right:
-        midpoint = int((left+right) // 2) # floor of ((l+r)/2)
+        midpoint = int((left+right) // 2) # The floor value of ((l+r)/2)
         if key > arr[midpoint]:
             left = midpoint + 1
         else:
@@ -30,7 +37,15 @@ def binary_search_leftmost(arr, key):
 
 def binary_search_leftmost_exec_time(arr, key):
     """
-    Perform a linear search by taking the floor value of ((l+r)/2) on an array of integers and return the execution time.
+    Perform a linear search on an array of integers and return the execution time.
+        
+    Args:
+        arr: list of integers to sort
+        key: integer to search for in the array
+    
+    Returns:
+        index: index of the key in the array
+        exec_time: execution time in milliseconds
     """
     start = time.time()
     index = binary_search_leftmost(arr=arr, key=key)
@@ -43,13 +58,17 @@ def binary_search_leftmost_exec_time(arr, key):
 def display_binary_search_leftmost(arr, key):
     """
     Display the result of the binary search operation
+        
+    Args:
+        arr: list of integers to sort
+        key: integer to search for in the array
     """
     print(f"\n=> The array: {arr}")
     print(f"=> The target key: {key}")
 
-    index, execution_time_floor = binary_search_leftmost_exec_time(arr=arr, key=key)
+    index, execution_time = binary_search_leftmost_exec_time(arr=arr, key=key)
     verify(index)
-    print(f"=> Execution time by taking the floor value of ((l+r)/2): {execution_time_floor*10**3:.3f} seconds")
+    print(f"=> Execution time by taking the floor value of ((l+r)/2): {execution_time*10**3:.3f} seconds")
 
 
 
