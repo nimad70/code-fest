@@ -35,8 +35,13 @@ def insertion_sort(arr):
 def insertion_sort_exec_time(arr):
     """
     Sort an array using the insertion sort algorithm
-        Args:
+    
+    Args:
         arr: list of integers to sort
+    
+    Returns:
+        sorted_array: list of sorted integers
+        exec_time: execution time in milliseconds
     """
     start = time.time()
     sorted_array = insertion_sort(arr)
@@ -48,6 +53,15 @@ def insertion_sort_exec_time(arr):
 
 
 def display_insertion_sort(arr):
+    """
+    Display the sorted array using the insertion sort algorithm
+
+    Args:
+        arr: list of integers to sort
+    
+    Returns:
+        sorted_array: list of sorted integers
+    """
     print("\n=> Unsorted array: ", arr)
     sorted_arr, exec_time = insertion_sort_exec_time(arr)
 

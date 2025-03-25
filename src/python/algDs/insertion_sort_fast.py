@@ -35,8 +35,13 @@ def insertion_sort_faster(arr):
 def insertion_sort_faster_exec_time(arr):
     """
     Sort an array using the insertion sort algorithm faster version
-        Args:
+    
+    Args:
         arr: list of integers to sort
+    
+    Returns:
+        sorted_array: list of sorted integers
+        exec_time: execution time in milliseconds
     """
     start = time.time()
     sorted_array = insertion_sort_faster(arr)
@@ -49,8 +54,10 @@ def insertion_sort_faster_exec_time(arr):
 def display_insertion_sort(arr):
     """
     Display the sorted array using the insertion sort algorithm faster version
+    
     Args:
         arr: list of integers to sort
+    
     Returns:
         sorted_array: list of sorted integers
     """

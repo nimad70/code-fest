@@ -10,7 +10,8 @@ def insertion_sort_recursive(arr, n):
     
     Args:
         arr: list of integers to sort
-    
+        n: length of the array
+        
     return:
         arr: sorted list of integers
     """
@@ -30,8 +31,13 @@ def insertion_sort_recursive(arr, n):
 def insertion_sort_recursive_exec_time(arr):
     """
     Sort an array using the insertion sort algorithm recursive version
-        Args:
+        
+    Args:
         arr: list of integers to sort
+
+    Returns:
+        sorted_array: list of sorted integers
+        exec_time: execution time in milliseconds
     """
     len_arr = len(arr) - 1
     
@@ -46,9 +52,11 @@ def insertion_sort_recursive_exec_time(arr):
 def display_insertion_sort(arr):
     """
     Display the sorted array using the insertion sort algorithm recursive version
+
     Args:
         arr: list of integers to sort
-        Returns:
+
+    Returns:
         sorted_array: list of sorted integers
     """
     print("\n=> Unsorted array: ", arr)
