@@ -2,46 +2,43 @@
 Linear search is a basic algorithm that checks each element in an array sequentially until it finds the target or reaches the end. 
 Its time complexity is O(n).
 """
-import time
+
 import random
+import time
+from typing import Optional, Tuple
+
 from src.python.utils.search_verify import verify
 
 
-def linear_search(arr, key):
+def linear_search(arr: list[int], key: int) -> Optional[int]:
     """
-    Perform a linear search on an array of integers. 
-    Returns the index psoition of the target if found, otherwise returns None
-    
+    Perform a linear search on a list of integers.
+
     Args:
-        arr: list of integers to search
-        key: integer to search for in the array
-        
-    Return:
-        index: index of the key in the array
+        arr: List of integers to search.
+        key: Integer to search for in the list.
+
+    Returns:
+        The index of the key in the list if found, otherwise None.
     """
-    if len(arr) == 0:
-        return None
-    elif len(arr) == 1:
-        if arr[0] == key:
-            return 0
-    else:
-        for i in range(len(arr)):
-            if arr[i] == key:
-                return i
+    for i in range(0, len(arr)):
+        if arr[i] == key:
+            return i
     return None
         
 
-def linear_search_exec_time(arr, key):
+def linear_search_exec_time(arr: list[int], key: int) -> Tuple[Optional[int], float]:
     """
-    Perform a linear search on an array of integers and return the execution time.
+    Perform a linear search on a list of integers and return the execution time.
 
     Args:
-        arr: list of integers to sort
-        key: integer to search for in the array
-    
+        arr: List of integers to search.
+        key: Integer to search for in the list.
+
     Returns:
-        index: index of the key in the array
-        exec_time: execution time in milliseconds
+        A tuple containing:
+        - The index of the key in the list if found, otherwise None.
+        - The execution time in seconds.
     """
     start = time.time()
     index = linear_search(arr=arr, key=key)
@@ -51,20 +48,20 @@ def linear_search_exec_time(arr, key):
     return index, execution_time
 
 
-def display_linear_search(arr, key):
+def display_linear_search(arr: list[int], key: int) -> None:
     """
-    Display the result of the linear search operation
-    
+    Display the result of the linear search operation.
+
     Args:
-        arr: list of integers to sort
-        key: integer to search for in the arr
+        arr: List of integers to search.
+        key: Integer to search for in the list.
     """
     index, execution_time = linear_search_exec_time(arr=arr, key=key)
     verify(index)
 
-    print(f"\n=> The array: {arr}")
-    print(f"=> The target key: {key}")
-    print(f"=> Execution time: {execution_time*10**3:.3f} seconds")
+    print(f"\n[INFO] The array: {arr}")
+    print(f"[INFO] The target key: {key}")
+    print(f"[INFO] Execution time: {execution_time*1000:.3f} milliseconds")
 
 
 if __name__ == "__main__":

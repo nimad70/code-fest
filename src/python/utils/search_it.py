@@ -1,13 +1,16 @@
 """
 This module is responsible for searching for the target in array based on the user's input.
 """
+
+from src.python.algDs.search_alg.binary_search import (
+    binary_search,
+    binary_search_ceil,
+    binary_search_leftmost_item,
+    binary_search_rightmost_item,
+)
+from src.python.algDs.search_alg.linear_search import linear_search
 from src.python.utils import menu
 from src.python.utils import validate
-from src.python.algDs import linear_search
-from src.python.algDs import binary_search
-from src.python.algDs import binary_search_ceil
-from src.python.algDs import binary_search_leftmost_item
-from src.python.algDs import binary_search_rightmost_item
 
 
 def search_target(arr):
