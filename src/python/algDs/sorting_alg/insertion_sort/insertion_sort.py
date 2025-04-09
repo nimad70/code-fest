@@ -2,24 +2,26 @@
 Insertion sort is a simple sorting algorithm that works the way we sort playing cards in our hands.
 It is less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
 """
+
 import time
+from typing import Tuple
 
 
-def insertion_sort(arr):
+def insertion_sort(arr: list[int]) -> list[int]:
     """
     Sort an array using the insertion sort algorithm.
 
     Args:
-        arr: list of integers to sort
-    
-    Return:
-        arr: sorted list of integers
+        arr: List of integers to sort.
+
+    Returns:
+        The sorted list of integers.
     """
     i = 1
     n = len(arr)
 
     if n <= 1:
-        return
+        return arr
     else:
         while i < n:
             j = i
@@ -32,41 +34,44 @@ def insertion_sort(arr):
     return arr
 
 
-def insertion_sort_exec_time(arr):
+def insertion_sort_exec_time(arr: list[int]) -> Tuple[list[int], float]:
     """
-    Sort an array using the insertion sort algorithm
-    
+    Sort an array using the insertion sort algorithm and return the execution time.
+
     Args:
-        arr: list of integers to sort
-    
+        arr: List of integers to sort.
+
     Returns:
-        sorted_array: list of sorted integers
-        exec_time: execution time in milliseconds
+        A tuple containing:
+        - The sorted list of integers.
+        - The execution time in milliseconds.
     """
     start = time.time()
+    ## Uncomment to not mutate the original array
+    # arr_copy = arr.copy
+    # sorted_array = insertion_sort(arr_copy)
     sorted_array = insertion_sort(arr)
     end = time.time()
-    exec_time = (end - start) * 10**3
+    exec_time = (end - start) * 1000
 
     return sorted_array, exec_time
 
 
-
-def display_insertion_sort(arr):
+def display_insertion_sort(arr: list[int]) -> list[int]:
     """
-    Display the sorted array using the insertion sort algorithm
+    Display the sorted array using the insertion sort algorithm.
 
     Args:
-        arr: list of integers to sort
-    
+        arr: List of integers to sort.
+
     Returns:
-        sorted_array: list of sorted integers
+        The sorted list of integers.
     """
-    print("\n=> Unsorted array: ", arr)
+    print("\n[INFO] Unsorted array: ", arr)
     sorted_arr, exec_time = insertion_sort_exec_time(arr)
 
-    print(f"Sorted array using basic insertion sort: {sorted_arr}")
-    print("Execution time: {:.3f}\n".format(exec_time))
+    print(f"[INFO] Sorted array using basic insertion sort: {sorted_arr}")
+    print(f"[INFO] Execution time: {exec_time:.3f} milliseconds\n")
 
     return sorted_arr
 
