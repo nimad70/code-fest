@@ -2,12 +2,14 @@
 Verify whether the target is in the array
 """
 
-def verify(index):
+from typing import Optional
+
+def verify(index: Optional[int]) -> None:
     """
-    Verify the index position of the target in the array
+    Verify the index position of the target in the array.
     """
     if index is not None:
-        print("\n$:) => Hooray! Target found at index position:", index)
+        print(f"\n[SUCCESS] Hooray! Target found at index position: {index}.")
     else:
-        print("\n$:( => Traget not found in the array")
+        print("\n[WARNING] Target not found in the array.")
 
