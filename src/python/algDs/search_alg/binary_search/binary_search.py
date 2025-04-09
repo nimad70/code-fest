@@ -3,27 +3,30 @@ Binary search is an efficient algorithm for finding a target value in a sorted a
 It repeatedly compares the target with the middle element, eliminating half of the search space each time until the target is found. 
 Its time complexity is O(log n).
 """
-import time
+
 import random
+import time
+from typing import Optional, Tuple
+
 from src.python.utils.search_verify import verify
 
 
-def binary_search(arr, key):
+def binary_search(arr: list[int], key: int) -> Optional[int]:
     """
-    Perform a binary search by taking the floor of ((l+r)/2) on an array of integers.
-    
+    Perform a binary search on a sorted list of integers.
+
     Args:
-        arr: list of integers to search
-        key: integer to search for in the array
-        
-    Return:
-        index: index of the key in the array
+        arr: List of integers to search.
+        key: Integer to search for in the list.
+
+    Returns:
+        The index of the key in the list if found, otherwise None.
     """
     left = 0
     right = len(arr) - 1 
     
     while left <= right:
-        midpoint = int((left+right) // 2) # The floor value of ((l+r)/2)
+        midpoint = int((left+right) // 2)
         if arr[midpoint] == key:
             return midpoint
         elif arr[midpoint] < key:
@@ -34,17 +37,18 @@ def binary_search(arr, key):
     return None
 
 
-def binary_search_exec_time(arr, key):
+def binary_search_exec_time(arr: list[int], key: int) -> Tuple[Optional[int], float]:
     """
-    Perform a linear search by taking the floor of ((l+r)/2) on an array of integers and return the execution time.
+    Perform a binary search on a list of integers and return the index and execution time.
     
     Args:
-        arr: list of integers to sort
-        key: integer to search for in the array
+        arr: List of integers to search.
+        key: Integer to search for in the list.
     
     Returns:
-        index: index of the key in the array
-        exec_time: execution time in milliseconds
+        A tuple containing:
+        - The index of the key in the list, or None if not found.
+        - The execution time in seconds.
     """
     start = time.time()
     index = binary_search(arr=arr, key=key)
@@ -54,21 +58,21 @@ def binary_search_exec_time(arr, key):
     return index, execution_time
 
 
-def display_binary_search(arr, key):
+def display_binary_search(arr: list[int], key: int) -> None:
     """
-    Display the result of the binary search operation
-    
+    Display the result of the binary search operation.
+
     Args:
-        arr: list of integers to sort
-        key: integer to search for in the array
+        arr: List of integers to search.
+        key: Integer to search for in the list.
     """
-    print(f"\n=> The array: {arr}")
-    print(f"=> The target key: {key}")
+    print(f"\n[INFO] The array: {arr}")
+    print(f"[INFO] The target key: {key}")
 
     index, execution_time = binary_search_exec_time(arr=arr, key=key)
     verify(index)
 
-    print(f"=> Execution time by taking the floor value of ((l+r)/2): {execution_time*10**3:.3f} seconds")
+    print(f"[INFO] Execution time of finding an element using binary search: {execution_time*1000:.3f} milliseconds")
 
 
 if __name__ == "__main__":

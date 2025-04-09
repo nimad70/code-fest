@@ -4,26 +4,29 @@ This algorithm works on the principle of divide and conquer.
 It is used to find the position of a specific value in a sorted array.
 In this implementation, we return the index of the leftmost element in case of duplicates.
 """
+
 import time
+from typing import Optional, Tuple
+
 from src.python.utils.search_verify import verify
 
 
-def binary_search_leftmost(arr, key):
+def binary_search_leftmost(arr: list[int], key: int) -> Optional[int]:
     """
-    This implementation of binary search returns the index of the leftmost element in case of duplicates.
-    
+    Perform a binary search to find the leftmost index of a key in a sorted list.
+
     Args:
-        arr: list of integers to search
-        key: integer to search for in the array
-        
-    Return:
-        index: index of the key in the array
+        arr: List of integers to search.
+        key: Integer to search for in the list.
+
+    Returns:
+        The index of the leftmost occurrence of the key if found, otherwise None.
     """
     left = 0
     right = len(arr)
     
     while left < right:
-        midpoint = int((left+right) // 2) # The floor value of ((l+r)/2)
+        midpoint = int((left+right) // 2)
         if key > arr[midpoint]:
             left = midpoint + 1
         else:
@@ -35,17 +38,18 @@ def binary_search_leftmost(arr, key):
     return None
 
 
-def binary_search_leftmost_exec_time(arr, key):
+def binary_search_leftmost_exec_time(arr: list[int], key: int) -> Tuple[Optional[int], float]:
     """
-    Perform a linear search on an array of integers and return the execution time.
-        
+    Perform a binary search to find the leftmost index of a key in a list and return the execution time.
+
     Args:
-        arr: list of integers to sort
-        key: integer to search for in the array
-    
+        arr: List of integers to search.
+        key: Integer to search for in the list.
+
     Returns:
-        index: index of the key in the array
-        exec_time: execution time in milliseconds
+        A tuple containing:
+        - The index of the leftmost occurrence of the key, or None if not found.
+        - The execution time in seconds.
     """
     start = time.time()
     index = binary_search_leftmost(arr=arr, key=key)
@@ -55,21 +59,20 @@ def binary_search_leftmost_exec_time(arr, key):
     return index, execution_time
 
 
-def display_binary_search_leftmost(arr, key):
+def display_binary_search_leftmost(arr: list[int], key: int) -> None:
     """
-    Display the result of the binary search operation
-        
+    Display the result of the leftmost binary search operation.
+
     Args:
-        arr: list of integers to sort
-        key: integer to search for in the array
+        arr: List of integers to search.
+        key: Integer to search for in the list.
     """
-    print(f"\n=> The array: {arr}")
-    print(f"=> The target key: {key}")
+    print(f"\n[INFO] The array: {arr}")
+    print(f"[INFO] The target key: {key}")
 
     index, execution_time = binary_search_leftmost_exec_time(arr=arr, key=key)
     verify(index)
-    print(f"=> Execution time by taking the floor value of ((l+r)/2): {execution_time*10**3:.3f} seconds")
-
+    print(f"[INFO] Execution time of finding the leftmost element using binary search: {execution_time*1000:.3f} milliseconds")
 
 
 if __name__ == "__main__":
