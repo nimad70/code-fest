@@ -1,38 +1,43 @@
 """
 This module contains the sort_array function which performs the sort operation based on the user's selection.
 """
-from src.python.algDs import insertion_sort
-from src.python.algDs import insertion_sort_fast
-from src.python.algDs import insertion_sort_recursive
+
+from src.python.algDs.sorting_alg.insertion_sort import (
+    insertion_sort,
+    insertion_sort_fast,
+    insertion_sort_recursive,
+)
 from src.python.utils import menu
 from src.python.utils import validate
 
 
-def sort_array(arr):
+def sort_array(arr: list[int]) -> list[int]:
     """
-    Perform the sort operation based on the user's selection
+    Perform the sort operation based on the user's selection.
 
     Args:
-        arr: list of integers to sort
-    """
+        arr: List of integers to sort.
 
+    Returns:
+        A sorted list of integers based on the selected sorting algorithm.
+    """
     while True:
         try:
             menu.display_sort_options()
-            sort_option = int(input("\n#Enter your choice (1-7):~$ "))
+            sort_option = int(input("\n# Enter your choice (1-7):~$ "))
 
             if sort_option == 1:
                 arr = insertion_sort.display_insertion_sort(arr=arr)
                 arr = insertion_sort_fast.display_insertion_sort(arr=arr)
                 arr = insertion_sort_recursive.display_insertion_sort(arr=arr)
                 return arr
+            elif sort_option == 2:
+                print("\n[INFO] Merge Sort Algorithm is not implemented yet!")
+                continue
             elif sort_option == 7:
-                """
-                Exits the sort.
-                """
-                print("\nExiting the sort!")
+                print("\n[INFO] Exiting the sort process!")
                 break
             else:
                 validate.invalid_option(num_options=7)
-        except:
-            print("\n=> Invalid input. Please enter a valid number.")
+        except ValueError:
+            print("\n[ERROR] Invalid input. Please enter a valid number!")
