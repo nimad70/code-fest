@@ -4,7 +4,7 @@ This module contains the sort_array function which performs the sort operation b
 
 from src.python.algDs.sorting_alg.insertion_sort import (
     insertion_sort,
-    insertion_sort_fast,
+    insertion_sort_optimized,
     insertion_sort_recursive,
 )
 from src.python.utils import menu
@@ -28,7 +28,7 @@ def sort_array(arr: list[int]) -> list[int]:
 
             if sort_option == 1:
                 arr = insertion_sort.display_insertion_sort(arr=arr)
-                arr = insertion_sort_fast.display_insertion_sort(arr=arr)
+                arr = insertion_sort_optimized.display_insertion_sort(arr=arr)
                 arr = insertion_sort_recursive.display_insertion_sort(arr=arr)
                 return arr
             elif sort_option == 2:

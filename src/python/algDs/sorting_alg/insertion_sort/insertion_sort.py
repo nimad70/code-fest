@@ -47,9 +47,11 @@ def insertion_sort_exec_time(arr: list[int]) -> Tuple[list[int], float]:
         - The execution time in milliseconds.
     """
     start = time.time()
-    ## Uncomment to not mutate the original array
+
+    # Uncomment the following lines to avoid mutating the original array
     # arr_copy = arr.copy
     # sorted_array = insertion_sort(arr_copy)
+    
     sorted_array = insertion_sort(arr)
     end = time.time()
     exec_time = (end - start) * 1000
@@ -67,7 +69,7 @@ def display_insertion_sort(arr: list[int]) -> list[int]:
     Returns:
         The sorted list of integers.
     """
-    print("\n[INFO] Unsorted array: ", arr)
+    print(f"\n[INFO] Unsorted array: {arr}")
     sorted_arr, exec_time = insertion_sort_exec_time(arr)
 
     print(f"[INFO] Sorted array using basic insertion sort: {sorted_arr}")
