@@ -1,10 +1,12 @@
 """
 Insertion sort algorithm using recursive version
 """
+
 import time
+from typing import Tuple
 
 
-def insertion_sort_recursive(arr, n):
+def recursive_insertion_sort(arr: list[int], n: int) -> list[int]:
     """
     Sort an array using the insertion sort algorithm recursively
     
@@ -16,9 +18,9 @@ def insertion_sort_recursive(arr, n):
         arr: sorted list of integers
     """
     if n <= 1:
-        return
+        return arr
     elif n > 0:
-        insertion_sort_recursive(arr, n-1)
+        recursive_insertion_sort(arr, n-1)
         key = arr[n]
         j = n-1
         while j >= 0 and arr[j] > key:

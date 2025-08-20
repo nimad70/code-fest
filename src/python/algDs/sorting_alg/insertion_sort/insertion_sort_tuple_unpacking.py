@@ -43,9 +43,11 @@ def insertion_sort_exec_time(arr: list[int]) -> Tuple[list[int], float]:
         - The execution time in milliseconds.
     """
     start = time.time()
+
     ## Uncomment to not mutate the original array
     # arr_copy = arr.copy
     # sorted_array = insertion_sort_tuple_packing(arr_copy)
+    
     sorted_array = insertion_sort_tuple_packing(arr)
     end = time.time()
     exec_time = (end - start) * 1000
